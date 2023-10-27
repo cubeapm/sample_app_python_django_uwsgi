@@ -1,0 +1,6 @@
+bin
+lib
+include
+pyvenv.cfg
+*.sqlite3
+__pycache__/
