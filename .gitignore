@@ -1,6 +1,7 @@
-bin
-lib
-include
-pyvenv.cfg
-*.sqlite3
+# when updating this file, also consider updating .dockerignore
 __pycache__/
+/bin/
+/include/
+/lib/
+/pyvenv.cfg
+.DS_Store

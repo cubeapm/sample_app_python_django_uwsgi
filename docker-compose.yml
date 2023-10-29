@@ -1,0 +1,39 @@
+version: "3"
+services:
+  django_uwsgi:
+    build:
+      context: .
+    container_name: cube_python_django_uwsgi_django
+    environment:
+      - CUBE_SAMPLE_MYSQL_HOST=mysql
+      - OTEL_SERVICE_NAME=cube_sample_python_django_uwsgi
+      - OTEL_EXPORTER_OTLP_COMPRESSION=gzip
+
+      # print traces on console
+      - OTEL_LOG_LEVEL=debug
+      # send traces to CubeAPM
+      # - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://host.docker.internal:4317
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+      - redis
+    restart: always
+
+  mysql:
+    image: mysql:8.0
+    container_name: cube_python_django_uwsgi_mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=test
+    volumes:
+      - cube_python_django_uwsgi_mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis:alpine3.18
+    container_name: cube_python_django_uwsgi_redis
+
+volumes:
+  cube_python_django_uwsgi_mysql:

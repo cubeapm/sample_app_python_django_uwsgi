@@ -1,7 +1,9 @@
 asgiref==3.7.2
 backoff==2.2.1
 certifi==2023.7.22
+cffi==1.16.0
 charset-normalizer==3.3.1
+cryptography==41.0.5
 Deprecated==1.2.14
 Django==4.2.6
 googleapis-common-protos==1.61.0
@@ -19,6 +21,8 @@ opentelemetry-instrumentation-dbapi==0.41b0
 opentelemetry-instrumentation-django==0.41b0
 opentelemetry-instrumentation-grpc==0.41b0
 opentelemetry-instrumentation-logging==0.41b0
+opentelemetry-instrumentation-pymysql==0.41b0
+opentelemetry-instrumentation-redis==0.41b0
 opentelemetry-instrumentation-requests==0.41b0
 opentelemetry-instrumentation-sqlite3==0.41b0
 opentelemetry-instrumentation-urllib==0.41b0
@@ -30,10 +34,14 @@ opentelemetry-sdk==1.20.0
 opentelemetry-semantic-conventions==0.41b0
 opentelemetry-util-http==0.41b0
 protobuf==4.24.4
+pycparser==2.21
+PyMySQL==1.1.0
+pyuwsgi==2.0.22
+redis==5.0.1
 requests==2.31.0
 sqlparse==0.4.4
 typing_extensions==4.8.0
+tzdata==2023.3
 urllib3==2.0.7
-uWSGI==2.0.22
 wrapt==1.15.0
 zipp==3.17.0
