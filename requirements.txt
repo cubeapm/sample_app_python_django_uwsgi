@@ -1,6 +1,8 @@
 asgiref==3.8.1
 certifi==2024.2.2
+cffi==1.16.0
 charset-normalizer==3.3.2
+cryptography==42.0.5
 Deprecated==1.2.14
 Django==5.0.4
 googleapis-common-protos==1.63.0
@@ -31,6 +33,7 @@ opentelemetry-semantic-conventions==0.45b0
 opentelemetry-test-utils==0.45b0
 opentelemetry-util-http==0.45b0
 protobuf==4.25.3
+pycparser==2.22
 PyMySQL==1.1.0
 pyuwsgi==2.0.23.post0
 redis==5.0.3
