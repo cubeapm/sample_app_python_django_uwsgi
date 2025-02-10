@@ -7,8 +7,8 @@ The code is organized into multiple branches. The main branch has the Django app
 | Branch                                                                                         | Instrumentation | Code changes for instrumentation                                                                                |
 | ---------------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
 | [main](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/main)         | None            | -                                                                                                               |
-| [newrelic]() | New Relic       | [main...newrelic]() |
-| [otel]()         | OpenTelemetry   | [main...otel]()         |
+| [newrelic](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/newrelic) | New Relic       | [main...newrelic](https://github.com/cubeapm/sample_app_python_django_uwsgi/compare/main...newrelic) |
+| [otel](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/otel)         | OpenTelemetry   | [main...otel](https://github.com/cubeapm/sample_app_python_django_uwsgi/compare/main...otel)         |
 
 # Setup
 
