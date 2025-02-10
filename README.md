@@ -1,3 +1,15 @@
+# New Relic Instrumentation
+
+This branch contains code for New Relic instrumentation.
+
+CubeAPM works with New Relic agents as described in [using CubeAPM with New Relic agents](https://docs.cubeapm.com/instrumentation#using-cubeapm-with-new-relic-agents).
+
+For testing, **ngrok** can be used in place of load balancer. Run `ngrok http 3130` to create a tunnel and use the domain name provided by ngrok to set `NEW_RELIC_HOST=xxxx.ngrok-free.app` in [docker-compose.yml](docker-compose.yml).
+
+Refer the project README below for more details.
+
+---
+
 # Python Django uWSGI Instrumentation
 
 This is a sample app to demonstrate how to instrument Python Django uWSGI app with **New Relic** and **OpenTelemetry**. It contains source code for the Django app which interacts with various services like Redis, MySQL, etc. to demonstrate tracing for these services. This repository has a docker compose file to set up all these services conveniently.
@@ -7,8 +19,8 @@ The code is organized into multiple branches. The main branch has the Django app
 | Branch                                                                                         | Instrumentation | Code changes for instrumentation                                                                                |
 | ---------------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
 | [main](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/main)         | None            | -                                                                                                               |
-| [newrelic]() | New Relic       | [main...newrelic]() |
-| [otel]()         | OpenTelemetry   | [main...otel]()         |
+| [newrelic](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/newrelic) | New Relic       | [main...newrelic](https://github.com/cubeapm/sample_app_python_django_uwsgi/compare/main...newrelic) |
+| [otel](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/otel)         | OpenTelemetry   | [main...otel](https://github.com/cubeapm/sample_app_python_django_uwsgi/compare/main...otel)         |
 
 # Setup
 

@@ -8,6 +8,9 @@ https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
 """
 
 import os
+import newrelic.agent
+
+newrelic.agent.initialize()
 
 from django.core.wsgi import get_wsgi_application
 
