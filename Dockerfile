@@ -11,6 +11,8 @@ ADD . .
 
 RUN pip install -r requirements.txt
 
+RUN opentelemetry-bootstrap -a install
+
 EXPOSE 8000
 
 CMD ["uwsgi", "--http", ":8000", "--module", "sample_app.wsgi:application", "--master", "-p", "4", "--enable-threads", "--need-app"]
