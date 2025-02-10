@@ -1,10 +1,16 @@
-# Python Django uWSGI OpenTelemetry Instrumentation
+# Python Django uWSGI Instrumentation
 
-This is a sample app to demonstrate how to instrument Python Django uWSGI app with OpenTelemetry. It contains source code for the Django app which interacts with various services like Redis, MySQL, etc. to demonstrate tracing for these services. This repository has a docker compose file to set up all these services conveniently.
+This is a sample app to demonstrate how to instrument Python Django uWSGI app with **New Relic** and **OpenTelemetry**. It contains source code for the Django app which interacts with various services like Redis, MySQL, etc. to demonstrate tracing for these services. This repository has a docker compose file to set up all these services conveniently.
 
-This repository is inentionally designed to work with any OpenTelemetry backend, not just CubeAPM. In fact, it can even work without any OpenTelemetry backend (by dumping traces to console, which is also the default behaviour).
+The code is organized into multiple branches. The main branch has the Django app without any instrumentation. Other branches then build upon the main branch to add specific instrumentations as below:
 
-## Setup
+| Branch                                                                                         | Instrumentation | Code changes for instrumentation                                                                                |
+| ---------------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
+| [main](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/main)         | None            | -                                                                                                               |
+| [newrelic]() | New Relic       | [main...newrelic]() |
+| [otel]()         | OpenTelemetry   | [main...otel]()         |
+
+# Setup
 
 Clone this repository and go to the project directory. Then run the following commands
 
@@ -15,14 +21,15 @@ pip install -r requirements.txt
 docker compose up --build
 
 # Run the following command in a separate terminal to apply the database migrations.
-# This is only needed during first time setup. Repeat executions are harmless though.
+# This is only needed during first-time setup. Repeat executions are harmless though.
+source ./bin/activate
 python manage.py migrate
 ```
 
 Django app will now be available at `http://localhost:8000/apis/`.
 
-The app has various API endpoints to demonstrate OpenTelemetry integrations with Redis, MySQL, etc. Check out [apis/views.py](apis/views.py) for the list of API endpoints. Hitting an API endpoint will generate the corresponding traces. Traces are printed to console (where docker compose is running) by default. If you want to send traces to a backend tool, comment out the `OTEL_LOG_LEVEL` line and uncomment the `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` line in [docker-compose.yml](docker-compose.yml).
+The app has various API endpoints to demonstrate integrations with Redis, MySQL, etc. Check out [apis/views.py](apis/views.py) for the list of API endpoints.
 
-## Contributing
+# Contributing
 
 Please feel free to raise PR for any enhancements - additional service integrations, library version updates, documentation updates, etc.
