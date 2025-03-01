@@ -21,13 +21,15 @@ ELASTIC_APM_LOG_FILE=stdout
 
 # Python Django uWSGI Instrumentation
 
-This is a sample app to demonstrate how to instrument Python Django uWSGI app with **New Relic** and **OpenTelemetry**. It contains source code for the Django app which interacts with various services like Redis, MySQL, etc. to demonstrate tracing for these services. This repository has a docker compose file to set up all these services conveniently.
+This is a sample app to demonstrate how to instrument Python Django uWSGI app with **Datadog**, **Elastic**, **New Relic** and **OpenTelemetry**. It contains source code for the Django app which interacts with various services like Redis, MySQL, etc. to demonstrate tracing for these services. This repository has a docker compose file to set up all these services conveniently.
 
 The code is organized into multiple branches. The main branch has the Django app without any instrumentation. Other branches then build upon the main branch to add specific instrumentations as below:
 
 | Branch                                                                                         | Instrumentation | Code changes for instrumentation                                                                                |
 | ---------------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------- |
 | [main](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/main)         | None            | -                                                                                                               |
+| [datadog](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/datadog) | Datadog       | [main...datadog](https://github.com/cubeapm/sample_app_python_django_uwsgi/compare/main...datadog) |
+| [elastic](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/elastic)         | Elastic   | [main...elastic](https://github.com/cubeapm/sample_app_python_django_uwsgi/compare/main...elastic)         |
 | [newrelic](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/newrelic) | New Relic       | [main...newrelic](https://github.com/cubeapm/sample_app_python_django_uwsgi/compare/main...newrelic) |
 | [otel](https://github.com/cubeapm/sample_app_python_django_uwsgi/tree/otel)         | OpenTelemetry   | [main...otel](https://github.com/cubeapm/sample_app_python_django_uwsgi/compare/main...otel)         |
 
