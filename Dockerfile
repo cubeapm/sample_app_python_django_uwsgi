@@ -13,4 +13,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-CMD ["uwsgi", "--http", ":8000", "--module", "sample_app.wsgi:application", "--master", "-p", "4", "--enable-threads", "--need-app"]
+CMD ["ddtrace-run", "uwsgi", "--http", ":8000", "--module", "sample_app.wsgi:application", "--master", "-p", "4", "--enable-threads", "--need-app"]
