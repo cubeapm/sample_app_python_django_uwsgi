@@ -13,7 +13,8 @@ from django.core.wsgi import get_wsgi_application
 
 from uwsgidecorators import postfork
 from opentelemetry import trace
-from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.semconv.resource import ResourceAttributes
+from opentelemetry.sdk.trace import TracerProvider, Resource
 from opentelemetry.sdk.trace.export import (
     BatchSpanProcessor,
     ConsoleSpanExporter,
@@ -24,6 +25,7 @@ from opentelemetry.instrumentation.django import DjangoInstrumentor
 from opentelemetry.instrumentation.pymysql import PyMySQLInstrumentor
 from opentelemetry.instrumentation.redis import RedisInstrumentor
 from opentelemetry.instrumentation.requests import RequestsInstrumentor
+from socket import gethostname
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sample_app.settings')
 
@@ -36,7 +38,10 @@ RequestsInstrumentor().instrument()
 # https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation
 @postfork
 def init_tracing():
-    provider = TracerProvider()
+    provider = TracerProvider(resource=Resource({
+      ResourceAttributes.SERVICE_NAME: os.environ['OTEL_SERVICE_NAME'],
+      ResourceAttributes.HOST_NAME: gethostname() or 'UNSET',
+   }))
     if os.getenv('OTEL_LOG_LEVEL', '') == 'debug':
         processor = SimpleSpanProcessor(ConsoleSpanExporter())
     else:
