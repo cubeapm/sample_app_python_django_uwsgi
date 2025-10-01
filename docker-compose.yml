@@ -20,7 +20,7 @@ services:
 
       # Print Elastic agent logs on screen (also see wsgi.py for additional requirements)
       # - ELASTIC_APM_LOG_FILE=stdout
-      # Set Elastic agent log level to debug if needed to see detailed logs
+      # Set Elastic agent log level to debug if needed to see detailed logs (also see wsgi.py for additional requirements)
       # - ELASTIC_APM_LOG_LEVEL=debug
     ports:
       - "8000:8000"
